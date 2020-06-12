@@ -25,25 +25,43 @@ $(document).ready(
         // faccio un controllo del numero:
         // se il valore inserito dall'utente è un numero,
         //  --> lo confronto con i numeri iniziali:
-        //      se è presente nella lista di numeri iniziali proposti all'utente (simon)
+        //      se è incluso nella lista di numeri iniziali proposti all'utente (simon)
         //        --> lo vado ad inserire nella lista di numeri 'numeriCorretti'
+        //            e lo appendo alla lista $(.corretti)
         //        --> altrimenti lo inserisco nella lista di numeri 'numeriSbagliati'
-        //      dopodichè incremento l'indice del ciclo while
+        //            e lo appendo alla lista $(.sbagliati)
+        //      dopodichè stampo anche tutti i numeri generati inizialmente dal computer in $('.simon')
+        //      e incremento l'indice del ciclo while
         //  --> altrimenti vado avanti senza incrementare l'indice del ciclo
         if (!(isNaN(numero))) {
 
           if (simon.includes(numero)) {
             numeriCorretti.push(numero);
+            $('.corretti').append('<li>&nbsp' + numero + ',</li>').css({
+              'color':'green',
+              'font-size':'20px',
+              'list-style-type': 'none'
+            })
           } else {
             numeriSbagliati.push(numero);
+            $('.sbagliati').append('<li>&nbsp' + numero + ',</li>').css({
+              'color':'red',
+              'font-size':'20px',
+              'list-style-type': 'none'
+            })
           }
-          i++
         }
+        $('.simon').append('<li>&nbsp' + simon[i] + ',</li>').css({
+          'color':'darkblue',
+          'font-size':'20px',
+          'list-style-type': 'none'
+        })
+        i++
       }
-      console.log('numeri iniziali: ' + simon);
-      console.log('numeri corretti: ' + numeriCorretti);
-      console.log('numeri sbagliati: ' + numeriSbagliati);
-    }, 1000)
+      // console.log('numeri iniziali: ' + simon);
+      // console.log('numeri corretti: ' + numeriCorretti);
+      // console.log('numeri sbagliati: ' + numeriSbagliati);
+    }, 3000)
 
     //          FUNZIONI          //
     // NUMERO CASUALE (Range)

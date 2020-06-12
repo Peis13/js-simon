@@ -5,3 +5,13 @@
   box-sizing: border-box;
 }
 /* FINE RESET */
+
+main {
+  padding: 50px;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: baseline;
+}
