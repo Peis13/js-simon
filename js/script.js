@@ -32,13 +32,10 @@ $(document).ready(
         //  --> altrimenti vado avanti senza incrementare l'indice del ciclo
         if (!(isNaN(numero))) {
 
-          for (var j = 0; j < simon.length; j++) {
-
-            if (numero === simon[j]) {
-              numeriCorretti.push(numero);
-            } else if (j === simon.length - 1) {
-              numeriSbagliati.push(numero);
-            }
+          if (simon.includes(numero)) {
+            numeriCorretti.push(numero);
+          } else {
+            numeriSbagliati.push(numero);
           }
           i++
         }
